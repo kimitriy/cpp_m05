@@ -12,22 +12,10 @@
 
 NAME		= materia
 
-HEADER		= 	AMateria.hpp \
-				Cure.hpp \
-				Ice.hpp \
-				ICharacter.hpp \
-				Character.hpp \
-				IMateriaSource.hpp \
-				MateriaSource.hpp \
+HEADER		= 	Bureaucrat.hpp \
 
 SRC 		= 	main.cpp \
-				AMateria.cpp \
-				Cure.cpp \
-				Ice.cpp \
-				ICharacter.cpp \
-				Character.cpp \
-				IMateriaSource.cpp \
-				MateriaSource.cpp \
+				Bureaucrat.cpp \
 
 OBJS		= ${SRC:.cpp=.o}
 
