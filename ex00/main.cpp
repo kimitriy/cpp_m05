@@ -2,5 +2,14 @@
 
 int	main()
 {
-	return ( 0 );
+	try
+	{
+		
+	}
+	catch (std::exception & e)
+	{
+
+	}
+		
+		return ( 0 );
 }

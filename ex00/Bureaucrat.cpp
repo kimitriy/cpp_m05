@@ -4,7 +4,10 @@
 Bureaucrat::Bureaucrat( std::string name, unsigned int grade )
 	: m_name( name ), m_grade( grade )
 {
-
+	if ( m_grade < 1 )
+		throw ( GradeTooHighException() );
+	else if ( m_grade > 150 )
+		throw ( GradeTooLowException() );
 }
 
 //copy constructor
@@ -37,6 +40,21 @@ std::string		Bureaucrat::getName( void ) const
 unsigned int	Bureaucrat::getGrade( void ) const
 {
 	return ( m_grade );
+}
+
+//exceptions
+std::exception&	Bureaucrat::GradeTooHighException()
+{
+	const char	*str = "The entered grade is too high and doesn't even exist";
+	std::exception exc(str);
+	exc.
+
+	return (  );
+}
+
+std::exception&	Bureaucrat::GradeTooLowException()
+{
+
 }
 
 //methods

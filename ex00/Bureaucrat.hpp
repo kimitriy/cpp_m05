@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <string>
+# include "MyException.hpp"
 
 # define RESET "\033[0m"
 
@@ -37,6 +38,10 @@ class	Bureaucrat
 		//getter
 		std::string		getName( void ) const;
 		unsigned int	getGrade( void ) const;
+
+		//exceptions
+		std::exception&	GradeTooHighException();
+		std::exception&	GradeTooLowException();
 
 		//methods
 		void	promotion( void );
