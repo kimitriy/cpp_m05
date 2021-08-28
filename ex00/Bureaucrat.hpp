@@ -34,14 +34,30 @@ class	Bureaucrat
 
 		//[=] operator overload
 		Bureaucrat& operator= ( const Bureaucrat& other );
+
+		class	GradeTooHighException : public std::exception
+		{
+			private:
+				const char *m_msg;
+			public:
+				GradeTooHighException( const char *msg );
+				~GradeTooHighException() throw();
+				virtual const char *what() const throw();
+		};
+
+		class	GradeTooLowException : public std::exception
+		{
+			private:
+				const char *m_msg;
+			public:
+				GradeTooLowException( const char *msg );
+				~GradeTooLowException() throw();
+				virtual const char *what() const throw();
+		};
 		
 		//getter
 		std::string		getName( void ) const;
 		unsigned int	getGrade( void ) const;
-
-		//exceptions
-		std::exception&	GradeTooHighException();
-		std::exception&	GradeTooLowException();
 
 		//methods
 		void	promotion( void );

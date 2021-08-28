@@ -10,19 +10,21 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= materia
+NAME		= m
 
 HEADER		= 	Bureaucrat.hpp \
 
 SRC 		= 	main.cpp \
 				Bureaucrat.cpp \
 
+# SRC 		= 	mexc.cpp
+
 OBJS		= ${SRC:.cpp=.o}
 
 CXX			= clang++
 
-# CPPFLAGS		= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow -I.
-CPPFLAGS		= -W -Wall -Werror
+CPPFLAGS		= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow -I.
+# CPPFLAGS		= -W -Wall -Werror
 
 RM			= rm -f
 
