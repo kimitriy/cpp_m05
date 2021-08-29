@@ -63,7 +63,7 @@ class	Bureaucrat
 		//methods
 		void	promotion( void );
 		void	demotion( void );
-		void	signForm( const Form& form );
+		void	signForm( const Form *form ) const;
 };
 
 //[<<] operator overload

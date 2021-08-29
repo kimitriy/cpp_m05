@@ -7,7 +7,7 @@ Form::Form( std::string name, int g2sign, int g2exec )
 	if ( m_g2sign < 1 || m_g2exec < 1 )
 		throw ( GradeTooHighException( "Non of the grades can be higher than 1! The form hasn't been created!" ) );
 	else if ( m_g2sign > 150 || m_g2exec > 150 )
-		throw ( GradeTooHighException( "Non of the grades can be lower than 150! The form hasn't been created!" ) );
+		throw ( GradeTooLowException( "Non of the grades can be lower than 150! The form hasn't been created!" ) );
 }
 
 //copy constructor////////////////////////////////////////////////////////////////
@@ -73,6 +73,9 @@ const char* Form::GradeTooLowException::what( void ) const throw()
 	return ( m_msg );
 }
 
+//setter
+
+
 //getter/////////////////////////////////////////////////////////////////////
 const std::string	Form::getName( void ) const
 {
@@ -103,7 +106,12 @@ std::string	Form::getSignedBy( void ) const
 
 void	Form::beSigned( const Bureaucrat& brcrt )
 {
-	
+	if ( brcrt.getGrade() >= this->getG2sign() )
+	{
+		brcrt.signForm( this );
+	}
+	else
+		throw ( GradeTooLowException( "This bureaucrat cannot sign the form due to his grade level is unsufficient!" ) );
 }
 
 //[<<] operator overload///////////////////////////////////////////////////

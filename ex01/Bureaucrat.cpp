@@ -107,7 +107,7 @@ void	Bureaucrat::demotion( void )
 	}
 }
 
-void	Bureaucrat::signForm( const Form& form )
+void	Bureaucrat::signForm( const Form *form ) const
 {
 	
 }

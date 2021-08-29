@@ -47,6 +47,9 @@ class	Form
 				virtual const char *what( void ) const throw();
 		};
 		
+		//setter
+		std::string	setSignedBy(  )
+
 		//getter
 		const std::string	getName( void ) const;
 		bool				getSigned( void ) const;
