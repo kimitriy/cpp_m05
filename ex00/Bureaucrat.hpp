@@ -3,7 +3,6 @@
 
 # include <iostream>
 # include <string>
-# include "MyException.hpp"
 
 # define RESET "\033[0m"
 
@@ -20,11 +19,11 @@ class	Bureaucrat
 {
 	protected:
 		const std::string	m_name;
-		unsigned int		m_grade;
+		int					m_grade;
 
 	public:
 		//default constructor
-		Bureaucrat( std::string name, unsigned int grade );
+		Bureaucrat( std::string name, int grade );
 
 		//copy constructor
 		Bureaucrat( const Bureaucrat& other );
@@ -41,8 +40,8 @@ class	Bureaucrat
 				const char *m_msg;
 			public:
 				GradeTooHighException( const char *msg );
-				~GradeTooHighException() throw();
-				virtual const char *what() const throw();
+				~GradeTooHighException( void ) throw();
+				virtual const char *what( void ) const throw();
 		};
 
 		class	GradeTooLowException : public std::exception
@@ -51,13 +50,13 @@ class	Bureaucrat
 				const char *m_msg;
 			public:
 				GradeTooLowException( const char *msg );
-				~GradeTooLowException() throw();
-				virtual const char *what() const throw();
+				~GradeTooLowException( void ) throw();
+				virtual const char *what( void ) const throw();
 		};
 		
 		//getter
 		std::string		getName( void ) const;
-		unsigned int	getGrade( void ) const;
+		int				getGrade( void ) const;
 
 		//methods
 		void	promotion( void );

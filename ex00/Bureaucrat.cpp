@@ -1,28 +1,28 @@
 # include "Bureaucrat.hpp"
 
-//default constructor
-Bureaucrat::Bureaucrat( std::string name, unsigned int grade )
+//default constructor/////////////////////////////////////////////////////////////
+Bureaucrat::Bureaucrat( std::string name, int grade )
 	: m_name( name ), m_grade( grade )
 {
 	if ( m_grade < 1 )
-		throw ( GradeTooHighException() );
+		throw ( GradeTooHighException( "The grade can not be higher than 1! The bureaucrat hasn't been created!" ) );
 	else if ( m_grade > 150 )
-		throw ( GradeTooLowException() );
+		throw ( GradeTooLowException( "The grade can not be lower than 150! The bureaucrat hasn't been created!" ) );
 }
 
-//copy constructor
+//copy constructor////////////////////////////////////////////////////////////////
 Bureaucrat::Bureaucrat( const Bureaucrat& other )
 {
 	*this = other;
 }
 
-//destructor
+//destructor///////////////////////////////////////////////////////////////////////
 Bureaucrat::~Bureaucrat( void )
 {
 
 }
 
-//[=] operator overload
+//[=] operator overload/////////////////////////////////////////////////////////////
 Bureaucrat& Bureaucrat::operator= ( const Bureaucrat& other )
 {
 	if (this == &other)
@@ -31,46 +31,85 @@ Bureaucrat& Bureaucrat::operator= ( const Bureaucrat& other )
 	return ( *this );
 }
 
-//getter
+
+//exceptions/////////////////////////////////////////////////////////////////////
+//constructor
+Bureaucrat::GradeTooHighException::GradeTooHighException( const char *msg )
+	: exception(), m_msg( msg )
+{
+	
+}
+
+//destructor
+Bureaucrat::GradeTooHighException::~GradeTooHighException( void ) throw()
+{
+
+}
+
+//method
+const char* Bureaucrat::GradeTooHighException::what( void ) const throw()
+{
+	return ( m_msg );
+}
+
+//constructor
+Bureaucrat::GradeTooLowException::GradeTooLowException( const char *msg )
+	: exception(), m_msg( msg )
+{
+	
+}
+
+//destructor
+Bureaucrat::GradeTooLowException::~GradeTooLowException( void ) throw()
+{
+
+}
+
+//method
+const char* Bureaucrat::GradeTooLowException::what( void ) const throw()
+{
+	return ( m_msg );
+}
+
+//getter/////////////////////////////////////////////////////////////////////
 std::string		Bureaucrat::getName( void ) const
 {
 	return ( m_name );
 }
 
-unsigned int	Bureaucrat::getGrade( void ) const
+int	Bureaucrat::getGrade( void ) const
 {
 	return ( m_grade );
 }
 
-//exceptions
-std::exception&	Bureaucrat::GradeTooHighException()
-{
-	const char	*str = "The entered grade is too high and doesn't even exist";
-	std::exception exc(str);
-	exc.
-
-	return (  );
-}
-
-std::exception&	Bureaucrat::GradeTooLowException()
-{
-
-}
-
-//methods
+//methods//////////////////////////////////////////////////////////////////
 void	Bureaucrat::promotion( void )
 {
-	
+	int	tmp = getGrade();
+	if ( (tmp - 1) <= 0 )
+		throw( GradeTooHighException( "The grade can not be higher than 1! Further promotion is unable!" ) );
+	else
+	{
+		m_grade = --tmp;
+		std::cout << F_R_GRN << "The bureaucrat " << F_R_PRPL << getName() << F_R_GRN << " is promoted. The grade is " << F_R_PRPL << getGrade() << F_R_GRN << " now." << RESET << std::endl;
+	}
 }
 
 void	Bureaucrat::demotion( void )
 {
-
+	int	tmp = getGrade();
+	if ( (tmp + 1) > 150 )
+		throw( GradeTooHighException( "The grade can not be lower than 150! Further demotion is unable!" ) );
+	else
+	{
+		m_grade = ++tmp;
+		std::cout << F_R_GRN << "The bureaucrat " << F_R_PRPL << getName() << F_R_GRN << " is demoted. The grade is " << F_R_PRPL << getGrade() << F_R_GRN << " now." << RESET << std::endl;
+	}
 }
 
-//[<<] operator overload
+//[<<] operator overload///////////////////////////////////////////////////
 std::ostream& operator<< ( std::ostream& out, const Bureaucrat& brcrt )
 {
-	out << brcrt.getName() << " bureaucrat grade " << brcrt.getGrade() << std::endl;
+	out << F_R_PRPL << brcrt.getName() << F_R_GRN << " bureaucrat grade " << F_R_PRPL << brcrt.getGrade() << RESET << std::endl;
 	return ( out );
 }
