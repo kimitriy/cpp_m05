@@ -48,7 +48,8 @@ class	Form
 		};
 		
 		//setter
-		std::string	setSignedBy(  )
+		void	setSigned( bool signature );
+		void	setSignedBy( const Bureaucrat& brcrt );
 
 		//getter
 		const std::string	getName( void ) const;
@@ -58,7 +59,7 @@ class	Form
 		std::string			getSignedBy( void ) const;
 
 		//methods
-		void	beSigned( const Bureaucrat& brcrt );
+		void	beSigned( Bureaucrat& brcrt );
 };
 
 //[<<] operator overload

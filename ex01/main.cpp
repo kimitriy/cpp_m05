@@ -4,33 +4,34 @@ int	main()
 {
 	try
 	{
-		//check constructor 
-		// Bureaucrat m("lala", 149);
+		// // check constructor
+		// Form m("m", 155, 1);
 		// std::cout << m << std::endl;
-		// // m.promotion();
-		// m.demotion();
-		// m.demotion();
 
-		//check constructor 
-		// Bureaucrat m("lala", 155);
+		// // check constructor
+		// Form m("m", 1, 200);
 		// std::cout << m << std::endl;
-		// std::cout << m.getName() << std::endl;
-		// std::cout << m.getGrade() << std::endl;
-		// m.promotion();
 
-		// //check decrement
-		// Bureaucrat m("lala", 149);
-		// std::cout << m << std::endl;
-		// m.demotion();
-		// std::cout << m << std::endl;
-		// m.demotion();
 
-		// //check increment
-		Bureaucrat t("tata", 1);
-		std::cout << t << std::endl;
-		Bureaucrat s(t);
-		std::cout << s << std::endl;
-		s.promotion();
+		// check functions
+		Bureaucrat John("John", 12);
+		Bureaucrat Jack("Jack", 80);
+		std::cout << John << std::endl;
+		
+		Form("csdc", 15, 20, 32);
+		
+		Form first("first", 13, 14);
+		std::cout << first;
+		Jack.signForm(first);
+		John.signForm(first);
+		Jack.signForm(first);
+		John.signForm(first);
+		std::cout << first;
+
+		Form second("second", 11, 14);;
+		std::cout << second;
+		John.signForm(second);
+		std::cout << second;
 	}
 	catch (std::exception & e)
 	{

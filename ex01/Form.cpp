@@ -2,7 +2,7 @@
 
 //default constructor/////////////////////////////////////////////////////////////
 Form::Form( std::string name, int g2sign, int g2exec )
-	: m_name( name ), m_signed( false ), m_g2sign( g2sign ), m_g2exec( g2exec ), m_signedBy( "" )
+	: m_name( name ), m_signed( false ), m_g2sign( g2sign ), m_g2exec( g2exec ), m_signedBy( "\0" )
 {
 	if ( m_g2sign < 1 || m_g2exec < 1 )
 		throw ( GradeTooHighException( "Non of the grades can be higher than 1! The form hasn't been created!" ) );
@@ -74,7 +74,15 @@ const char* Form::GradeTooLowException::what( void ) const throw()
 }
 
 //setter
+void	Form::setSigned( bool signature )
+{
+	m_signedBy = signature;
+}
 
+void	Form::setSignedBy( const Bureaucrat& brcrt )
+{
+	m_signedBy = brcrt.getName();
+}
 
 //getter/////////////////////////////////////////////////////////////////////
 const std::string	Form::getName( void ) const
@@ -104,14 +112,19 @@ std::string	Form::getSignedBy( void ) const
 
 //methods//////////////////////////////////////////////////////////////////
 
-void	Form::beSigned( const Bureaucrat& brcrt )
+void	Form::beSigned( Bureaucrat& brcrt )
 {
 	if ( brcrt.getGrade() >= this->getG2sign() )
 	{
-		brcrt.signForm( this );
+		setSigned( true );
+		setSignedBy( brcrt );
+		brcrt.signForm( true, this->getName() );
 	}
 	else
+	{
+		brcrt.signForm( false, this->getName() );
 		throw ( GradeTooLowException( "This bureaucrat cannot sign the form due to his grade level is unsufficient!" ) );
+	}
 }
 
 //[<<] operator overload///////////////////////////////////////////////////

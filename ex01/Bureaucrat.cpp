@@ -107,9 +107,13 @@ void	Bureaucrat::demotion( void )
 	}
 }
 
-void	Bureaucrat::signForm( const Form *form ) const
+void	Bureaucrat::signForm( bool success, std::string form )
 {
-	
+	if (success == true)
+		std::cout << "Bureaucrat " << this->getName() << " signs form " << form << std::endl;
+	else
+		std::cout << "Bureaucrat " << this->getName() << " cannot sign form " << form << "because of inappropriate grade level" << std::endl;
+
 }
 
 //[<<] operator overload///////////////////////////////////////////////////

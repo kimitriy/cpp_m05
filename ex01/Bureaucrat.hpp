@@ -19,7 +19,7 @@ class	Form;
 
 class	Bureaucrat
 {
-	protected:
+	private:
 		const std::string	m_name;
 		int					m_grade;
 
@@ -63,7 +63,7 @@ class	Bureaucrat
 		//methods
 		void	promotion( void );
 		void	demotion( void );
-		void	signForm( const Form *form ) const;
+		void	signForm( bool success, std::string form );
 };
 
 //[<<] operator overload
