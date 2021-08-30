@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= brcrt
+NAME		=	form
 
-HEADER		= 	Bureaucrat.hpp \
+HEADER		=	Bureaucrat.hpp \
 				Form.hpp \
 
 SRC 		= 	main.cpp \

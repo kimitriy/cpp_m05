@@ -16,7 +16,7 @@ class	Form
 
 	public:
 		//default constructor
-		Form( std::string name, int g2sign, int g2exec );
+		Form( const std::string name, const int g2sign, const int g2exec );
 
 		//copy constructor
 		Form( const Form& other );
@@ -54,8 +54,8 @@ class	Form
 		//getter
 		const std::string	getName( void ) const;
 		bool				getSigned( void ) const;
-		const int			getG2sign( void ) const;
-		const int			getG2exec( void ) const;
+		int					getG2sign( void ) const;
+		int					getG2exec( void ) const;
 		std::string			getSignedBy( void ) const;
 
 		//methods

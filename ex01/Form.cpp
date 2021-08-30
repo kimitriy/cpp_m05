@@ -1,7 +1,7 @@
 #include "Form.hpp"
 
 //default constructor/////////////////////////////////////////////////////////////
-Form::Form( std::string name, int g2sign, int g2exec )
+Form::Form( const std::string name, const int g2sign, const int g2exec )
 	: m_name( name ), m_signed( false ), m_g2sign( g2sign ), m_g2exec( g2exec ), m_signedBy( "\0" )
 {
 	if ( m_g2sign < 1 || m_g2exec < 1 )
@@ -76,7 +76,7 @@ const char* Form::GradeTooLowException::what( void ) const throw()
 //setter
 void	Form::setSigned( bool signature )
 {
-	m_signedBy = signature;
+	m_signed = signature;
 }
 
 void	Form::setSignedBy( const Bureaucrat& brcrt )
@@ -95,12 +95,12 @@ bool	Form::getSigned( void ) const
 	return ( m_signed );
 }
 
-const int	Form::getG2sign( void ) const
+int	Form::getG2sign( void ) const
 {
 	return ( m_g2sign );
 }
 
-const int	Form::getG2exec( void ) const
+int	Form::getG2exec( void ) const
 {
 	return ( m_g2exec );
 }
@@ -114,7 +114,7 @@ std::string	Form::getSignedBy( void ) const
 
 void	Form::beSigned( Bureaucrat& brcrt )
 {
-	if ( brcrt.getGrade() >= this->getG2sign() )
+	if ( brcrt.getGrade() <= this->getG2sign() )
 	{
 		setSigned( true );
 		setSignedBy( brcrt );
@@ -132,7 +132,7 @@ std::ostream& operator<< ( std::ostream& out, const Form& form )
 {
 	std::string status;
 	if (form.getSigned() == true)
-		status = "signed by" + form.getSignedBy();
+		status = "signed by " + form.getSignedBy();
 	else
 		status = "not signed yet";
 

@@ -1,37 +1,24 @@
 # include "Bureaucrat.hpp"
+# include "Form.hpp"
 
 int	main()
 {
 	try
 	{
-		// // check constructor
-		// Form m("m", 155, 1);
-		// std::cout << m << std::endl;
-
-		// // check constructor
-		// Form m("m", 1, 200);
-		// std::cout << m << std::endl;
-
-
-		// check functions
-		Bureaucrat John("John", 12);
-		Bureaucrat Jack("Jack", 80);
-		std::cout << John << std::endl;
+		// Bureaucrat joe("Joe", 151);
+		// std::cout << joe << std::endl;
 		
-		Form("csdc", 15, 20, 32);
+		Bureaucrat bob("Bob", 16);
+		std::cout << bob << std::endl;
 		
-		Form first("first", 13, 14);
-		std::cout << first;
-		Jack.signForm(first);
-		John.signForm(first);
-		Jack.signForm(first);
-		John.signForm(first);
-		std::cout << first;
+		Form aaa("AAA", 15, 16);
+		std::cout << aaa << std::endl;
 
-		Form second("second", 11, 14);;
-		std::cout << second;
-		John.signForm(second);
-		std::cout << second;
+		// bob.promotion();
+		// std::cout << bob << std::endl;
+
+		aaa.beSigned( bob );
+		std::cout << aaa << std::endl;
 	}
 	catch (std::exception & e)
 	{

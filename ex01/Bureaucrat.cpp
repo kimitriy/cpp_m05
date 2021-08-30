@@ -110,9 +110,9 @@ void	Bureaucrat::demotion( void )
 void	Bureaucrat::signForm( bool success, std::string form )
 {
 	if (success == true)
-		std::cout << "Bureaucrat " << this->getName() << " signs form " << form << std::endl;
+		std::cout << F_R_GRN << "Bureaucrat " << F_R_PRPL << this->getName() << F_R_GRN << " signs form " << F_R_PRPL << form << RESET << std::endl;
 	else
-		std::cout << "Bureaucrat " << this->getName() << " cannot sign form " << form << "because of inappropriate grade level" << std::endl;
+		std::cout << F_R_GRN << "Bureaucrat " << F_R_PRPL << this->getName() << F_R_GRN << " cannot sign form " << F_R_PRPL << form << F_R_GRN << " because of " << F_R_PRPL << "inappropriate grade level" << RESET << std::endl;
 
 }
 
