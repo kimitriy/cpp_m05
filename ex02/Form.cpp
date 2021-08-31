@@ -93,18 +93,18 @@ std::string	Form::getSignedBy( void ) const
 
 //methods//////////////////////////////////////////////////////////////////
 
-void	Form::beSigned( Bureaucrat& brcrt )
+void	Form::beSigned( Bureaucrat & brcrt )
 {
 	if ( brcrt.getGrade() <= this->getG2sign() )
 	{
 		setSigned( true );
 		setSignedBy( brcrt.getName() );
-		brcrt.signForm( true, this->getName() );
+		std::cout << F_R_GRN << "Bureaucrat " << F_R_PRPL << brcrt.getName() << F_R_GRN << " signs form " << F_R_PRPL << this->getName() << RESET << std::endl;
 	}
 	else
 	{
-		brcrt.signForm( false, this->getName() );
-		throw ( FormException( "This bureaucrat cannot sign the form due to his grade level is unsufficient!" ) );
+		std::string anno = "Bureaucrat " + brcrt.getName() + " cannot sign the " + this->getName() + "due to his grade level is unsufficient!";
+		throw ( FormException( anno.c_str() ) );
 	}
 }
 

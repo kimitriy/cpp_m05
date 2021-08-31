@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 //default constructor/////////////////////////////////////////////////////////////
 Bureaucrat::Bureaucrat( std::string name, int grade )
@@ -53,7 +54,7 @@ const char* Bureaucrat::BureaucratException::what( void ) const throw()
 }
 
 //getter/////////////////////////////////////////////////////////////////////
-std::string		Bureaucrat::getName( void ) const
+std::string	Bureaucrat::getName( void ) const
 {
 	return ( m_name );
 }
@@ -88,13 +89,25 @@ void	Bureaucrat::demotion( void )
 	}
 }
 
-void	Bureaucrat::signForm( bool success, std::string form )
-{
-	if (success == true)
-		std::cout << F_R_GRN << "Bureaucrat " << F_R_PRPL << this->getName() << F_R_GRN << " signs form " << F_R_PRPL << form << RESET << std::endl;
-	else
-		std::cout << F_R_GRN << "Bureaucrat " << F_R_PRPL << this->getName() << F_R_GRN << " cannot sign form " << F_R_PRPL << form << F_R_GRN << " because of " << F_R_PRPL << "inappropriate grade level" << RESET << std::endl;
+// void	Bureaucrat::signForm( Form const & form ) const
+// {
+// 	if (form.getSigned() == true )
+// 	{
+// 		std::cout << F_R_GRN << "Bureaucrat " << F_R_PRPL << this->getName() << F_R_GRN << " signs form " << F_R_PRPL << form << RESET << std::endl;
+// 	}
+// 	else
+// 		std::cout << F_R_GRN << "Bureaucrat " << F_R_PRPL << this->getName() << F_R_GRN << " cannot sign form " << F_R_PRPL << form << F_R_GRN << " because of " << F_R_PRPL << "inappropriate grade level" << RESET << std::endl;
 
+// }
+
+void	Bureaucrat::signForm( Form & form )
+{
+	form.beSigned( *this );
+}
+
+void	Bureaucrat::executeForm( Form const & form ) const
+{
+	form.execute( *this );
 }
 
 //[<<] operator overload///////////////////////////////////////////////////

@@ -4,7 +4,11 @@
 class ShrubberyCreationForm : public Form
 {
 	private:
+		//fields
 		std::string	m_target;
+
+		//method
+		void		plantTree( int foliageH, int trunkH ) const;
 
 	public:	
 		//default constructor
@@ -20,7 +24,7 @@ class ShrubberyCreationForm : public Form
 		Form& operator= ( const ShrubberyCreationForm& other );
 
 		//methods
-		void	plantTree( void );
+		virtual void	execute( Bureaucrat const & executor ) const;
 };
 
 //ascii_tree.cpp

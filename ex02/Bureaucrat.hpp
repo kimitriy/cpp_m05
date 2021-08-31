@@ -45,15 +45,16 @@ class	Bureaucrat
 				~BureaucratException( void ) throw();
 				virtual const char *what( void ) const throw();
 		};
-		
+
 		//getter
-		std::string		getName( void ) const;
-		int				getGrade( void ) const;
+		std::string	getName( void ) const;
+		int			getGrade( void ) const;
 
 		//methods
 		void	promotion( void );
 		void	demotion( void );
-		void	signForm( bool success, std::string form );
+		void	signForm( Form & form );
+		void	executeForm(Form const & form) const;
 };
 
 //[<<] operator overload

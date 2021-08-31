@@ -8,10 +8,10 @@ int	main()
 		// Bureaucrat joe("Joe", 151);
 		// std::cout << joe << std::endl;
 		
-		Bureaucrat bob("Bob", 16);
+		Bureaucrat bob("Bob", 137);
 		std::cout << bob << std::endl;
 		
-		ShrubberyCreationForm aaa( "plant" );
+		ShrubberyCreationForm aaa( "aaa" );
 		std::cout << aaa << std::endl;
 
 		// bob.promotion();
@@ -20,7 +20,7 @@ int	main()
 		aaa.beSigned( bob );
 		std::cout << aaa << std::endl;
 
-		aaa.plantTree();
+		aaa.execute( bob );
 	}
 	catch (std::exception & e)
 	{

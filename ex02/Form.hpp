@@ -49,7 +49,8 @@ class	Form
 		std::string			getSignedBy( void ) const;
 
 		//methods
-		void	beSigned( Bureaucrat& brcrt );
+		void			beSigned( Bureaucrat & brcrt );
+		virtual void	execute( Bureaucrat const & executor ) const = 0;
 };
 
 //[<<] operator overload
