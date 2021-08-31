@@ -14,10 +14,17 @@ NAME		=	form
 
 HEADER		=	Bureaucrat.hpp \
 				Form.hpp \
+				ShrubberyCreationForm.hpp \
+				# RobotomyRequestForm.hpp \
+				PresidentialPardonForm.hpp \
 
 SRC 		= 	main.cpp \
 				Bureaucrat.cpp \
 				Form.cpp \
+				ShrubberyCreationForm.cpp \
+				ascii_tree.cpp \
+				# RobotomyRequestForm.cpp \
+				PresidentialPardonForm.cpp \
 
 OBJS		= ${SRC:.cpp=.o}
 

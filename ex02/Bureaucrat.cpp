@@ -52,25 +52,6 @@ const char* Bureaucrat::BureaucratException::what( void ) const throw()
 	return ( m_msg );
 }
 
-//constructor
-// Bureaucrat::GradeTooLowException::GradeTooLowException( const char *msg )
-// 	: exception(), m_msg( msg )
-// {
-	
-// }
-
-//destructor
-// Bureaucrat::GradeTooLowException::~GradeTooLowException( void ) throw()
-// {
-
-// }
-
-//method
-// const char* Bureaucrat::GradeTooLowException::what( void ) const throw()
-// {
-// 	return ( m_msg );
-// }
-
 //getter/////////////////////////////////////////////////////////////////////
 std::string		Bureaucrat::getName( void ) const
 {

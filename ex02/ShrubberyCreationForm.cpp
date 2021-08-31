@@ -1,8 +1,8 @@
 #include "ShrubberyCreationForm.hpp"
 
 //default constructor/////////////////////////////////////////////////////////////
-ShrubberyCreationForm::ShrubberyCreationForm( const std::string name, const int g2sign, const int g2exec )
-	: Form( name, g2sign, g2exec )
+ShrubberyCreationForm::ShrubberyCreationForm( const std::string target )
+	: Form( "ShrubberyCreationForm", 145, 137 ), m_target( target )
 {
 	
 }
@@ -25,17 +25,19 @@ Form& ShrubberyCreationForm::operator= ( const ShrubberyCreationForm& other )
 {
 	if (this == &other)
 		return ( *this );
-	this->m_signed = other.getSigned();
-	this->m_signedBy = other.getSignedBy();
+	this->setSigned( other.getSigned() );
+	this->setSignedBy( other.getSignedBy() );
 	return ( *this );
 }
 
 //methods
-void	ShrubberyCreationForm::plantTree( std::string target )
+void	ShrubberyCreationForm::plantTree()
 {
-	std::string filename = target + "_shrubbery";
-	std::ofstream ofs( filename ); //creates and opens file with name "filename", ofs - is an object of the ofstream class
-	if (!ofs)
+	std::string filename = m_target + "_shrubbery";
+	std::ofstream ofs( filename.c_str() ); //creates and opens file with name "filename", ofs - is an object of the ofstream class
+	if ( !ofs )
 		throw FormException( "Unable to create file!" );
-	
+	if ( drawTree(11, 2, ofs) == false )
+		throw FormException( "Wrong value of foliage / trunk height!" );
+	ofs.close();
 }

@@ -45,16 +45,6 @@ class	Bureaucrat
 				~BureaucratException( void ) throw();
 				virtual const char *what( void ) const throw();
 		};
-
-		// class	GradeTooLowException : public std::exception
-		// {
-		// 	private:
-		// 		const char *m_msg;
-		// 	public:
-		// 		GradeTooLowException( const char *msg );
-		// 		~GradeTooLowException( void ) throw();
-		// 		virtual const char *what( void ) const throw();
-		// };
 		
 		//getter
 		std::string		getName( void ) const;

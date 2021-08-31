@@ -1,5 +1,5 @@
 # include "Bureaucrat.hpp"
-# include "Form.hpp"
+# include "ShrubberyCreationForm.hpp"
 
 int	main()
 {
@@ -11,7 +11,7 @@ int	main()
 		Bureaucrat bob("Bob", 16);
 		std::cout << bob << std::endl;
 		
-		Form aaa("AAA", 15, 16);
+		ShrubberyCreationForm aaa( "plant" );
 		std::cout << aaa << std::endl;
 
 		// bob.promotion();
@@ -19,6 +19,8 @@ int	main()
 
 		aaa.beSigned( bob );
 		std::cout << aaa << std::endl;
+
+		aaa.plantTree();
 	}
 	catch (std::exception & e)
 	{

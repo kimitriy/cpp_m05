@@ -54,34 +54,15 @@ const char* Form::FormException::what( void ) const throw()
 	return ( m_msg );
 }
 
-//constructor
-// Form::GradeTooLowException::GradeTooLowException( const char *msg )
-// 	: exception(), m_msg( msg )
-// {
-
-// }
-
-//destructor
-// Form::GradeTooLowException::~GradeTooLowException( void ) throw()
-// {
-
-// }
-
-//method
-// const char* Form::GradeTooLowException::what( void ) const throw()
-// {
-// 	return ( m_msg );
-// }
-
 //setter
 void	Form::setSigned( bool signature )
 {
 	m_signed = signature;
 }
 
-void	Form::setSignedBy( const Bureaucrat& brcrt )
+void	Form::setSignedBy( std::string name )
 {
-	m_signedBy = brcrt.getName();
+	m_signedBy = name;
 }
 
 //getter/////////////////////////////////////////////////////////////////////
@@ -117,7 +98,7 @@ void	Form::beSigned( Bureaucrat& brcrt )
 	if ( brcrt.getGrade() <= this->getG2sign() )
 	{
 		setSigned( true );
-		setSignedBy( brcrt );
+		setSignedBy( brcrt.getName() );
 		brcrt.signForm( true, this->getName() );
 	}
 	else

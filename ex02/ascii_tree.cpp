@@ -1,25 +1,24 @@
-#include <iostream>
-#include <string>
+#include "ShrubberyCreationForm.hpp"
 
-void	drawALineOfFoliage( int lvlW, int treeW )
+void	drawALineOfFoliage( int lvlW, int treeW, char arr[4], std::ofstream& ofs )
 {
 	int	space = (treeW - lvlW) / 2;
 	int i = -1;
 	while ( ++i < space )
-		std::cout << " ";
+		ofs << arr[0];
 	i = -1;
 	while ( ++i < (treeW - space * 2) )
 		if ( i % 2 == 0)
-			std::cout << "&";
+			ofs << arr[1];
 		else
-			std::cout << "$";
+			ofs << arr[2];
 	i = -1;
 	while ( ++i < space )
-		std::cout << " ";
-	std::cout << std::endl;
+		ofs << arr[0];
+	ofs << std::endl;
 }
 
-void	drawTrunk( int trunkH, int treeW )
+void	drawTrunk( int trunkH, int treeW, char arr[4], std::ofstream& ofs )
 {
 	int	space = treeW / 2;
 	int	h = 0;
@@ -27,23 +26,22 @@ void	drawTrunk( int trunkH, int treeW )
 	{
 		int	i = -1;
 		while ( ++i < space )
-			std::cout << " ";
-		std::cout << "#";
+			ofs << arr[0];
+		ofs << arr[3];
 		i = -1;
 		while ( ++i < space )
-			std::cout << " ";
-		std::cout << std::endl;
+			ofs << arr[0];
+		ofs << std::endl;
 		h++;
 	}
 }
 
-void drawTree( int foliageH, int trunkH )
+bool	drawTree( int foliageH, int trunkH, std::ofstream& ofs )
 {
+	char arr[4] = {' ', '&', '$', '#'};
+
 	if ( foliageH <= 0 || trunkH <= 0)
-	{
-		std::cout << "Wrong value of foliage / trunk height!" << std::endl;
-		return ;
-	}
+		return ( false );
 	int	treeW = 1;
 	int lvlW = 1;
 	int	i = 0;
@@ -52,14 +50,9 @@ void drawTree( int foliageH, int trunkH )
 	i = 0;
 	while ( ++i <= foliageH )
 	{
-		drawALineOfFoliage( lvlW, treeW );
+		drawALineOfFoliage( lvlW, treeW, arr, ofs );
 		lvlW += 2;
 	}
-	drawTrunk( trunkH, treeW );
-}
-
-int	main()
-{
-	drawTree(17, 4);
-	return ( 0 );
+	drawTrunk( trunkH, treeW, arr, ofs );
+	return ( true );
 }

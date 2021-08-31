@@ -3,9 +3,12 @@
 
 class ShrubberyCreationForm : public Form
 {
+	private:
+		std::string	m_target;
+
 	public:	
 		//default constructor
-		ShrubberyCreationForm( const std::string name, const int g2sign, const int g2exec );
+		ShrubberyCreationForm( const std::string target );
 
 		//copy constructor
 		ShrubberyCreationForm( const ShrubberyCreationForm& other );
@@ -17,5 +20,10 @@ class ShrubberyCreationForm : public Form
 		Form& operator= ( const ShrubberyCreationForm& other );
 
 		//methods
-		void	plantTree( std::string target );
+		void	plantTree( void );
 };
+
+//ascii_tree.cpp
+void	drawALineOfFoliage( int lvlW, int treeW, char arr[4], std::ofstream& ofs );
+void	drawTrunk( int trunkH, int treeW, char arr[4], std::ofstream& ofs );
+bool	drawTree( int foliageH, int trunkH, std::ofstream& ofs );

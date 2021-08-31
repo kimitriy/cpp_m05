@@ -7,7 +7,7 @@
 
 class	Form
 {
-	protected:
+	private:
 		const std::string	m_name;
 		bool				m_signed;
 		const int			m_g2sign;
@@ -36,20 +36,10 @@ class	Form
 				~FormException( void ) throw();
 				virtual const char *what( void ) const throw();
 		};
-
-		// class	GradeTooLowException : public std::exception
-		// {
-		// 	private:
-		// 		const char *m_msg;
-		// 	public:
-		// 		GradeTooLowException( const char *msg );
-		// 		~GradeTooLowException( void ) throw();
-		// 		virtual const char *what( void ) const throw();
-		// };
 		
 		//setter
 		void	setSigned( bool signature );
-		void	setSignedBy( const Bureaucrat& brcrt );
+		void	setSignedBy( std::string name );
 
 		//getter
 		const std::string	getName( void ) const;
