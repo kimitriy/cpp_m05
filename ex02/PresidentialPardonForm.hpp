@@ -1,5 +1,7 @@
-// #include <math.h>
-#include "Form.hpp"
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
+
+# include "Form.hpp"
 
 class PresidentialPardonForm : public Form
 {
@@ -26,3 +28,5 @@ class PresidentialPardonForm : public Form
 		//methods
 		virtual void	execute( Bureaucrat const & executor ) const;
 };
+
+#endif

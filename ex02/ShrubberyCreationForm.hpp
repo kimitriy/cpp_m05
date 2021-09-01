@@ -1,5 +1,8 @@
-#include <fstream>
-#include "Form.hpp"
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
+
+# include <fstream>
+# include "Form.hpp"
 
 class ShrubberyCreationForm : public Form
 {
@@ -31,3 +34,5 @@ class ShrubberyCreationForm : public Form
 void	drawALineOfFoliage( int lvlW, int treeW, char arr[4], std::ofstream& ofs );
 void	drawTrunk( int trunkH, int treeW, char arr[4], std::ofstream& ofs );
 bool	drawTree( int foliageH, int trunkH, std::ofstream& ofs );
+
+#endif

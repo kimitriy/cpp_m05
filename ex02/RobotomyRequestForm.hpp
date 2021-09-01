@@ -1,5 +1,8 @@
-#include <math.h>
-#include "Form.hpp"
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
+
+# include <math.h>
+# include "Form.hpp"
 
 class RobotomyRequestForm : public Form
 {
@@ -26,3 +29,5 @@ class RobotomyRequestForm : public Form
 		//methods
 		virtual void	execute( Bureaucrat const & executor ) const;
 };
+
+#endif
