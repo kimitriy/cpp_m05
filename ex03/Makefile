@@ -10,31 +10,27 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= materia
+NAME		=	form
 
-HEADER		= 	AMateria.hpp \
-				Cure.hpp \
-				Ice.hpp \
-				ICharacter.hpp \
-				Character.hpp \
-				IMateriaSource.hpp \
-				MateriaSource.hpp \
+HEADER		=	Bureaucrat.hpp \
+				Form.hpp \
+				ShrubberyCreationForm.hpp \
+				RobotomyRequestForm.hpp \
+				PresidentialPardonForm.hpp \
 
 SRC 		= 	main.cpp \
-				AMateria.cpp \
-				Cure.cpp \
-				Ice.cpp \
-				ICharacter.cpp \
-				Character.cpp \
-				IMateriaSource.cpp \
-				MateriaSource.cpp \
+				Bureaucrat.cpp \
+				Form.cpp \
+				ShrubberyCreationForm.cpp \
+				ascii_tree.cpp \
+				RobotomyRequestForm.cpp \
+				PresidentialPardonForm.cpp \
 
 OBJS		= ${SRC:.cpp=.o}
 
 CXX			= clang++
 
-# CPPFLAGS		= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow -I.
-CPPFLAGS		= -W -Wall -Werror
+CPPFLAGS		= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow -I.
 
 RM			= rm -f
 
