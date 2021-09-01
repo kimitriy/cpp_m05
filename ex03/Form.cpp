@@ -109,7 +109,7 @@ void	Form::beSigned( Bureaucrat & brcrt )
 }
 
 //[<<] operator overload///////////////////////////////////////////////////
-std::ostream& operator<< ( std::ostream& out, const Form& form )
+std::ostream& operator<< ( std::ostream& out, Form const & form )
 {
 	std::string status;
 	if (form.getSigned() == true)

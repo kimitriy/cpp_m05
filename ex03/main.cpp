@@ -2,6 +2,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int	main()
 {
@@ -10,23 +11,28 @@ int	main()
 		// Bureaucrat joe("Joe", 151);
 		// std::cout << joe << std::endl;
 		
-		Bureaucrat bob("Bob", 26);
+		
+		Bureaucrat bob("Bob", 1);
 		std::cout << bob << std::endl;
 		
-		ShrubberyCreationForm aaa( "tree" );
-		std::cout << aaa << std::endl;
+		Form *aaa = new ShrubberyCreationForm( "tree" );
+		std::cout << *aaa << std::endl;
 
+		ShrubberyCreationForm bbb( "tree" );
+		std::cout << bbb << std::endl;
+
+	
 		// bob.promotion();
 		// std::cout << bob << std::endl;
 
-		aaa.beSigned( bob );
-		std::cout << aaa << std::endl;
+		// aaa->beSigned( bob );
+		// std::cout << aaa << std::endl;
 
-		aaa.execute( bob );
-		std::cout << aaa << std::endl;
+		// aaa->execute( bob );
+		// std::cout << aaa << std::endl;
 
 
-
+		/*
 		RobotomyRequestForm bbb( "noise" );
 		std::cout << bbb << std::endl;
 
@@ -46,6 +52,21 @@ int	main()
 
 		ccc.execute( bob );
 		std::cout << ccc << std::endl;
+		*/
+
+		// Intern	randomIntern;
+		// Form*	randomForm;
+
+		// randomForm = randomIntern.makeForm( "ShrubberyCreationForm", "Bender" );
+		// randomForm = randomIntern.makeForm( "RobotomyRequestForm", "Bender" );
+		// randomForm = randomIntern.makeForm( "PresidentialPardonForm", "Bender" );
+		// randomForm = randomIntern.makeForm( "ccacaca", "Bender" );
+
+		// std::cout << randomForm << std::endl;
+
+		// randomForm->beSigned( bob );
+		// randomForm->execute( bob );
+		// std::cout << randomForm << std::endl;
 	}
 	catch (std::exception & e)
 	{

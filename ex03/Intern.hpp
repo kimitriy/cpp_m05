@@ -11,7 +11,13 @@
 class	Intern
 {
 	private:
-		
+		//fields
+		typedef	Form* (Intern::*fPtrArr)( std::string target );
+		fPtrArr	fArr[3];
+		//methods
+		Form	*newShrubberyCreationForm( std::string target );
+		Form	*newRobotomyRequestForm( std::string target );
+		Form	*newPresidentialPardonForm( std::string target );
 
 	public:
 		//default constructor

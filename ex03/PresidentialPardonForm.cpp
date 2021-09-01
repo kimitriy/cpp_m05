@@ -11,7 +11,7 @@ void	PresidentialPardonForm::pardon( void ) const
 PresidentialPardonForm::PresidentialPardonForm( const std::string target )
 	: Form( "PresidentialPardonForm", 25, 5 ), m_target( target )
 {
-	
+	// std::cout << "from PresidentialPardonForm: m_target: " << m_target << std::endl;
 }
 
 //copy constructor////////////////////////////////////////////////////////////////

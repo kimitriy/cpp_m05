@@ -10,13 +10,14 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	form
+NAME		=	intern
 
 HEADER		=	Bureaucrat.hpp \
 				Form.hpp \
 				ShrubberyCreationForm.hpp \
 				RobotomyRequestForm.hpp \
 				PresidentialPardonForm.hpp \
+				Intern.hpp \
 
 SRC 		= 	main.cpp \
 				Bureaucrat.cpp \
@@ -25,6 +26,7 @@ SRC 		= 	main.cpp \
 				ascii_tree.cpp \
 				RobotomyRequestForm.cpp \
 				PresidentialPardonForm.cpp \
+				Intern.cpp \
 
 OBJS		= ${SRC:.cpp=.o}
 
