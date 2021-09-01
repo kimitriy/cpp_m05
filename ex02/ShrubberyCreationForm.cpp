@@ -11,6 +11,7 @@ void	ShrubberyCreationForm::plantTree( int foliageH, int trunkH ) const
 	if ( drawTree( foliageH, trunkH, ofs) == false )
 		throw FormException( "Wrong value of foliage / trunk height!" );
 	ofs.close();
+	std::cout << F_R_PRPL << filename << F_R_GRN << " has been created successfully " << RESET << std::endl;
 }
 
 //default constructor/////////////////////////////////////////////////////////////
@@ -53,8 +54,8 @@ void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const
 	{
 		if ( executor.getGrade() <= this->getG2exec() ) //if executor's grade matches to the form requirements
 		{
-			plantTree( 11, 2 );
 			std::cout << F_R_GRN << "Bureaucrat " << F_R_PRPL << executor.getName() << F_R_GRN << " executes " << F_R_PRPL << this->getName() << RESET << std::endl;
+			plantTree( 11, 2 );
 		}
 		else
 		{

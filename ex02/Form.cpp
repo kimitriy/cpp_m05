@@ -103,7 +103,7 @@ void	Form::beSigned( Bureaucrat & brcrt )
 	}
 	else
 	{
-		std::string anno = "Bureaucrat " + brcrt.getName() + " cannot sign the " + this->getName() + "due to his grade level is unsufficient!";
+		std::string anno = "Bureaucrat " + brcrt.getName() + " cannot sign the " + this->getName() + " due to his grade level is unsufficient!";
 		throw ( FormException( anno.c_str() ) );
 	}
 }

@@ -89,17 +89,6 @@ void	Bureaucrat::demotion( void )
 	}
 }
 
-// void	Bureaucrat::signForm( Form const & form ) const
-// {
-// 	if (form.getSigned() == true )
-// 	{
-// 		std::cout << F_R_GRN << "Bureaucrat " << F_R_PRPL << this->getName() << F_R_GRN << " signs form " << F_R_PRPL << form << RESET << std::endl;
-// 	}
-// 	else
-// 		std::cout << F_R_GRN << "Bureaucrat " << F_R_PRPL << this->getName() << F_R_GRN << " cannot sign form " << F_R_PRPL << form << F_R_GRN << " because of " << F_R_PRPL << "inappropriate grade level" << RESET << std::endl;
-
-// }
-
 void	Bureaucrat::signForm( Form & form )
 {
 	form.beSigned( *this );
