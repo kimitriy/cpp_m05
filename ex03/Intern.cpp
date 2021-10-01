@@ -98,10 +98,3 @@ Form* Intern::makeForm( std::string formName, std::string formTarget)
 	}
 	throw InternException( "Sorry! Requested form is unknown." );
 }
-
-//[<<] operator overload///////////////////////////////////////////////////
-std::ostream& operator<< ( std::ostream& out, const Intern& intrn )
-{
-	( void )intrn;
-	return ( out );
-}

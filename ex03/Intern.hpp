@@ -50,7 +50,4 @@ class	Intern
 		Form *makeForm( std::string formName, std::string formTarget);
 };
 
-//[<<] operator overload
-std::ostream& operator<< ( std::ostream& out, const Intern& intrn );
-
 #endif
