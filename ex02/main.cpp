@@ -13,17 +13,28 @@ int	main()
 		Bureaucrat bob("Bob", 6);
 		std::cout << bob << std::endl;
 		
-		ShrubberyCreationForm aaa( "tree" );
-		std::cout << aaa << std::endl;
+		Form *aaa = new ShrubberyCreationForm( "tree" );
+		std::cout << *aaa << std::endl;
 
-		bob.promotion();
-		std::cout << bob << std::endl;
+		aaa->beSigned( bob );
+		std::cout << *aaa << std::endl;
 
-		aaa.beSigned( bob );
-		std::cout << aaa << std::endl;
+		aaa->execute( bob );
+		std::cout << *aaa << std::endl;
+		
+		delete aaa;
 
-		aaa.execute( bob );
-		std::cout << aaa << std::endl;
+		// ShrubberyCreationForm aaa( "tree" );
+		// std::cout << aaa << std::endl;
+
+		// bob.promotion();
+		// std::cout << bob << std::endl;
+
+		// aaa.beSigned( bob );
+		// std::cout << aaa << std::endl;
+
+		// aaa.execute( bob );
+		// std::cout << aaa << std::endl;
 
 
 

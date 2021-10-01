@@ -20,7 +20,7 @@ class PresidentialPardonForm : public Form
 		PresidentialPardonForm( const PresidentialPardonForm& other );
 
 		//destructor
-		~PresidentialPardonForm( void );
+		virtual ~PresidentialPardonForm( void );
 
 		//[=] operator overload
 		Form& operator= ( const PresidentialPardonForm& other );

@@ -22,7 +22,7 @@ class	Form
 		Form( const Form& other );
 
 		//destructor
-		~Form( void );
+		virtual ~Form( void );
 
 		//[=] operator overload
 		Form& operator= ( const Form& other );

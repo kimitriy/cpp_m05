@@ -21,7 +21,7 @@ class ShrubberyCreationForm : public Form
 		ShrubberyCreationForm( const ShrubberyCreationForm& other );
 
 		//destructor
-		~ShrubberyCreationForm( void );
+		virtual ~ShrubberyCreationForm( void );
 
 		//[=] operator overload
 		Form& operator= ( const ShrubberyCreationForm& other );

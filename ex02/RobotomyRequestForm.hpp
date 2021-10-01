@@ -21,7 +21,7 @@ class RobotomyRequestForm : public Form
 		RobotomyRequestForm( const RobotomyRequestForm& other );
 
 		//destructor
-		~RobotomyRequestForm( void );
+		virtual ~RobotomyRequestForm( void );
 
 		//[=] operator overload
 		Form& operator= ( const RobotomyRequestForm& other );
