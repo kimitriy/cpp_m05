@@ -25,6 +25,9 @@ class RobotomyRequestForm : public Form
 
 		//[=] operator overload
 		Form& operator= ( const RobotomyRequestForm& other );
+		
+		//getter
+		std::string		getTarget( void ) const;
 
 		//methods
 		virtual void	execute( Bureaucrat const & executor ) const;

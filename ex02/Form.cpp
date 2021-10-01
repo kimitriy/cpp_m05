@@ -4,6 +4,7 @@
 Form::Form( const std::string name, const int g2sign, const int g2exec )
 	: m_name( name ), m_signed( false ), m_g2sign( g2sign ), m_g2exec( g2exec ), m_signedBy( "\0" )
 {
+	std::cout << "Form param constructor started" << std::endl;
 	if ( m_g2sign < 1 || m_g2exec < 1 )
 		throw ( FormException( "Non of the grades can be higher than 1! The form hasn't been created!" ) );
 	else if ( m_g2sign > 150 || m_g2exec > 150 )
@@ -12,24 +13,26 @@ Form::Form( const std::string name, const int g2sign, const int g2exec )
 
 //copy constructor////////////////////////////////////////////////////////////////
 Form::Form( const Form& other )
-	: m_name( other.getName() ), m_g2sign( other.getG2sign() ), m_g2exec( other.getG2exec() )
+	: m_name(other.getName()), m_signed(other.getSigned()), m_g2sign(other.getG2sign()), m_g2exec(other.getG2exec()), m_signedBy(other.getSignedBy())
 {
-	*this = other;
+	std::cout << "Form copy constructor started" << std::endl;
 }
 
 //destructor///////////////////////////////////////////////////////////////////////
 Form::~Form( void )
 {
-
+	std::cout << "Form destructor started" << std::endl;
 }
 
 //[=] operator overload/////////////////////////////////////////////////////////////
 Form& Form::operator= ( const Form& other )
 {
-	if (this == &other)
-		return ( *this );
-	this->m_signed = other.getSigned();
-	this->m_signedBy = other.getSignedBy();
+	std::cout << "Form [=] operator started" << std::endl;
+	if (this != &other)
+	{
+		this->m_signed = other.getSigned();
+		this->m_signedBy = other.getSignedBy();
+	}
 	return ( *this );
 }
 
@@ -39,13 +42,13 @@ Form& Form::operator= ( const Form& other )
 Form::FormException::FormException( const char *msg )
 	: exception(), m_msg( msg )
 {
-
+	std::cout << "FormException constructor started" << std::endl;
 }
 
 //destructor
 Form::FormException::~FormException( void ) throw()
 {
-
+	std::cout << "FormException destructor started" << std::endl;
 }
 
 //method

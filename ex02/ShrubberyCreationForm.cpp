@@ -18,31 +18,39 @@ void	ShrubberyCreationForm::plantTree( int foliageH, int trunkH ) const
 ShrubberyCreationForm::ShrubberyCreationForm( const std::string target )
 	: Form( "ShrubberyCreationForm", 145, 137 ), m_target( target )
 {
-	
+	std::cout << "ShrubberyCreationForm constructor started" << std::endl;
 }
 
 //copy constructor////////////////////////////////////////////////////////////////
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm& other )
-	: Form( other )
+	: Form( other ), m_target(other.getTarget())
 {
-	*this = other;
+	std::cout << "ShrubberyCreationForm copy constructor started" << std::endl;
 }
 
 //destructor///////////////////////////////////////////////////////////////////////
 ShrubberyCreationForm::~ShrubberyCreationForm( void )
 {
-
+	std::cout << "ShrubberyCreationForm destructor started" << std::endl;
 }
 
 //[=] operator overload/////////////////////////////////////////////////////////////
 Form& ShrubberyCreationForm::operator= ( const ShrubberyCreationForm& other )
 {
+	std::cout << "ShrubberyCreationForm [=] operator started" << std::endl;
 	if (this == &other)
-		return ( *this );
-	this->setSigned( other.getSigned() );
-	this->setSignedBy( other.getSignedBy() );
-	this->m_target = other.m_target;
+	{
+		this->setSigned( other.getSigned() );
+		this->setSignedBy( other.getSignedBy() );
+		this->m_target = other.getTarget();
+	}
 	return ( *this );
+}
+
+//getter
+std::string		ShrubberyCreationForm::getTarget( void ) const
+{
+	return (m_target);
 }
 
 //methods

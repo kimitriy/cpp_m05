@@ -23,31 +23,39 @@ void	RobotomyRequestForm::robotomizer( int noise ) const
 RobotomyRequestForm::RobotomyRequestForm( const std::string target )
 	: Form( "RobotomyRequestForm", 72, 45 ), m_target( target )
 {
-	
+	std::cout << "RobotomyRequestForm constructor started" << std::endl;
 }
 
 //copy constructor////////////////////////////////////////////////////////////////
 RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm& other )
-	: Form( other )
+	: Form( other ), m_target(other.getTarget())
 {
-	*this = other;
+	std::cout << "RobotomyRequestForm copy constructor started" << std::endl;
 }
 
 //destructor///////////////////////////////////////////////////////////////////////
 RobotomyRequestForm::~RobotomyRequestForm( void )
 {
-
+	std::cout << "RobotomyRequestForm destructor started" << std::endl;
 }
 
 //[=] operator overload/////////////////////////////////////////////////////////////
 Form& RobotomyRequestForm::operator= ( const RobotomyRequestForm& other )
 {
+	std::cout << "RobotomyRequestForm [=] operator started" << std::endl;
 	if (this == &other)
-		return ( *this );
-	this->setSigned( other.getSigned() );
-	this->setSignedBy( other.getSignedBy() );
-	this->m_target = other.m_target;
+	{
+		this->setSigned( other.getSigned() );
+		this->setSignedBy( other.getSignedBy() );
+		this->m_target = other.getTarget();
+	}
 	return ( *this );
+}
+
+//getter
+std::string		RobotomyRequestForm::getTarget( void ) const
+{
+	return (m_target);
 }
 
 //methods
