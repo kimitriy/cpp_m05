@@ -22,7 +22,7 @@ int	main()
 	}
 	catch (std::exception & e)
 	{
-		std::cerr << F_R_RED << e.what() << RESET << '\n';
+		std::cerr << F_R_RED << e.what() << RESET << std::endl;
 	}
 		
 	return ( 0 );
