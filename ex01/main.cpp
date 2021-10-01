@@ -14,8 +14,8 @@ int	main()
 		Form aaa("AAA", 15, 16);
 		std::cout << aaa << std::endl;
 
-		// bob.promotion();
-		// std::cout << bob << std::endl;
+		bob.promotion();
+		std::cout << bob << std::endl;
 
 		aaa.beSigned( bob );
 		std::cout << aaa << std::endl;

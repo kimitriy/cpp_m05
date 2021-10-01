@@ -4,6 +4,7 @@
 Bureaucrat::Bureaucrat( std::string name, int grade )
 	: m_name( name ), m_grade( grade )
 {
+	std::cout << "Bureaucrat param constructor started" << std::endl;
 	if ( m_grade < 1 )
 		throw ( GradeTooHighException( "The grade can not be higher than 1! The bureaucrat hasn't been created!" ) );
 	else if ( m_grade > 150 )
@@ -12,22 +13,23 @@ Bureaucrat::Bureaucrat( std::string name, int grade )
 
 //copy constructor////////////////////////////////////////////////////////////////
 Bureaucrat::Bureaucrat( const Bureaucrat& other )
+	: m_name(other.getName()), m_grade(other.getGrade())
 {
-	*this = other;
+	std::cout << "Bureaucrat copy constructor started" << std::endl;
 }
 
 //destructor///////////////////////////////////////////////////////////////////////
 Bureaucrat::~Bureaucrat( void )
 {
-
+	std::cout << "Bureaucrat destructor started" << std::endl;
 }
 
 //[=] operator overload/////////////////////////////////////////////////////////////
 Bureaucrat& Bureaucrat::operator= ( const Bureaucrat& other )
 {
-	if (this == &other)
-		return ( *this );
-	this->m_grade = other.getGrade();
+	std::cout << "Bureaucrat [=] operator started" << std::endl;
+	if (this != &other)
+		this->m_grade = other.getGrade();
 	return ( *this );
 }
 
@@ -37,13 +39,13 @@ Bureaucrat& Bureaucrat::operator= ( const Bureaucrat& other )
 Bureaucrat::GradeTooHighException::GradeTooHighException( const char *msg )
 	: exception(), m_msg( msg )
 {
-	
+	std::cout << "GradeTooHighException constructor started" << std::endl;
 }
 
 //destructor
 Bureaucrat::GradeTooHighException::~GradeTooHighException( void ) throw()
 {
-
+	std::cout << "GradeTooHighException destructor started" << std::endl;
 }
 
 //method
@@ -56,13 +58,13 @@ const char* Bureaucrat::GradeTooHighException::what( void ) const throw()
 Bureaucrat::GradeTooLowException::GradeTooLowException( const char *msg )
 	: exception(), m_msg( msg )
 {
-	
+	std::cout << "GradeTooLowException constructor started" << std::endl;
 }
 
 //destructor
 Bureaucrat::GradeTooLowException::~GradeTooLowException( void ) throw()
 {
-
+	std::cout << "GradeTooLowException destructor started" << std::endl;
 }
 
 //method
@@ -99,7 +101,7 @@ void	Bureaucrat::demotion( void )
 {
 	int	tmp = getGrade();
 	if ( (tmp + 1) > 150 )
-		throw( GradeTooHighException( "The grade can not be lower than 150! Further demotion is unable!" ) );
+		throw( GradeTooLowException( "The grade can not be lower than 150! Further demotion is unable!" ) );
 	else
 	{
 		m_grade = ++tmp;
