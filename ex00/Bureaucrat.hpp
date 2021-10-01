@@ -22,7 +22,7 @@ class	Bureaucrat
 		int					m_grade;
 
 	public:
-		//default constructor
+		//param constructor
 		Bureaucrat( std::string name, int grade );
 
 		//copy constructor
