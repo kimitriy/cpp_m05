@@ -15,7 +15,6 @@ Form*	Intern::newRobotomyRequestForm( std::string target )
 
 Form*	Intern::newPresidentialPardonForm( std::string target )
 {
-	// std::cout << "from newPresidentialPardonForm: target: " << target << std::endl;
 	Form *rv = new PresidentialPardonForm( target );
 	return ( rv );
 }
@@ -23,6 +22,7 @@ Form*	Intern::newPresidentialPardonForm( std::string target )
 //default constructor/////////////////////////////////////////////////////////////
 Intern::Intern( void )
 {
+	std::cout << "Intern constructor started" << std::endl;
 	fArr[0] = &Intern::newShrubberyCreationForm;
 	fArr[1] = &Intern::newRobotomyRequestForm;
 	fArr[2] = &Intern::newPresidentialPardonForm;
@@ -31,25 +31,30 @@ Intern::Intern( void )
 //copy constructor////////////////////////////////////////////////////////////////
 Intern::Intern( const Intern& other )
 {
+	std::cout << "Intern constructor started" << std::endl;
 	*this = other;
 }
 
 //destructor///////////////////////////////////////////////////////////////////////
 Intern::~Intern( void )
 {
-
+	std::cout << "Intern destructor started" << std::endl;
+	
+	
 }
 
 //[=] operator overload/////////////////////////////////////////////////////////////
 Intern& Intern::operator= ( const Intern& other )
 {
-	if (this == &other)
-		return ( *this );
-	int	i = 0;
-	while (i < 3)
+	std::cout << "Intern [=] operator started" << std::endl;
+	if (this != &other)
 	{
-		this->fArr[i] = other.fArr[i];
-		i++;
+		int	i = 0;
+		while (i < 3)
+		{
+			this->fArr[i] = other.fArr[i];
+			i++;
+		}
 	}
 	return ( *this );
 }
@@ -60,13 +65,13 @@ Intern& Intern::operator= ( const Intern& other )
 Intern::InternException::InternException( const char *msg )
 	: exception(), m_msg( msg )
 {
-
+	std::cout << "InternException constructor started" << std::endl;
 }
 
 //destructor
 Intern::InternException::~InternException( void ) throw()
 {
-
+	std::cout << "InternException destructor started" << std::endl;
 }
 
 //method

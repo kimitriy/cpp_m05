@@ -26,6 +26,9 @@ class ShrubberyCreationForm : public Form
 		//[=] operator overload
 		Form& operator= ( const ShrubberyCreationForm& other );
 
+		//getter
+		std::string		getTarget( void ) const;
+
 		//methods
 		virtual void	execute( Bureaucrat const & executor ) const;
 };

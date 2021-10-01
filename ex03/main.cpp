@@ -18,19 +18,20 @@ int	main()
 		Form *aaa = new ShrubberyCreationForm( "tree" );
 		std::cout << *aaa << std::endl;
 
-		ShrubberyCreationForm bbb( "tree" );
-		std::cout << bbb << std::endl;
+		// ShrubberyCreationForm bbb( "tree" );
+		// std::cout << bbb << std::endl;
 
 	
 		// bob.promotion();
 		// std::cout << bob << std::endl;
 
-		// aaa->beSigned( bob );
-		// std::cout << aaa << std::endl;
+		aaa->beSigned( bob );
+		std::cout << *aaa << std::endl;
 
-		// aaa->execute( bob );
-		// std::cout << aaa << std::endl;
+		aaa->execute( bob );
+		std::cout << *aaa << std::endl;
 
+		delete aaa;
 
 		/*
 		RobotomyRequestForm bbb( "noise" );
@@ -62,11 +63,13 @@ int	main()
 		// randomForm = randomIntern.makeForm( "PresidentialPardonForm", "Bender" );
 		// randomForm = randomIntern.makeForm( "ccacaca", "Bender" );
 
-		// std::cout << randomForm << std::endl;
+		// std::cout << *randomForm << std::endl;
 
 		// randomForm->beSigned( bob );
+		// std::cout << *randomForm << std::endl;
 		// randomForm->execute( bob );
-		// std::cout << randomForm << std::endl;
+		
+		// delete randomForm;
 	}
 	catch (std::exception & e)
 	{

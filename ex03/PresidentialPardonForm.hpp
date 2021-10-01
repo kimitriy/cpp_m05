@@ -25,6 +25,9 @@ class PresidentialPardonForm : public Form
 		//[=] operator overload
 		Form& operator= ( const PresidentialPardonForm& other );
 
+		//getter
+		std::string		getTarget( void ) const;
+
 		//methods
 		virtual void	execute( Bureaucrat const & executor ) const;
 };

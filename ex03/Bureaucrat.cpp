@@ -5,6 +5,7 @@
 Bureaucrat::Bureaucrat( std::string name, int grade )
 	: m_name( name ), m_grade( grade )
 {
+	std::cout << "Bureaucrat param constructor started" << std::endl;
 	if ( m_grade < 1 )
 		throw ( BureaucratException( "The grade can not be higher than 1! The bureaucrat hasn't been created!" ) );
 	else if ( m_grade > 150 )
@@ -13,22 +14,23 @@ Bureaucrat::Bureaucrat( std::string name, int grade )
 
 //copy constructor////////////////////////////////////////////////////////////////
 Bureaucrat::Bureaucrat( const Bureaucrat& other )
+	: m_name(other.getName()), m_grade(other.getGrade())
 {
-	*this = other;
+	std::cout << "Bureaucrat copy constructor started" << std::endl;
 }
 
 //destructor///////////////////////////////////////////////////////////////////////
 Bureaucrat::~Bureaucrat( void )
 {
-
+	std::cout << "Bureaucrat destructor started" << std::endl;
 }
 
 //[=] operator overload/////////////////////////////////////////////////////////////
 Bureaucrat& Bureaucrat::operator= ( const Bureaucrat& other )
 {
-	if (this == &other)
-		return ( *this );
-	this->m_grade = other.getGrade();
+	std::cout << "Bureaucrat [=] operator started" << std::endl;
+	if (this != &other)
+		this->m_grade = other.getGrade();
 	return ( *this );
 }
 
@@ -38,13 +40,13 @@ Bureaucrat& Bureaucrat::operator= ( const Bureaucrat& other )
 Bureaucrat::BureaucratException::BureaucratException( const char *msg )
 	: exception(), m_msg( msg )
 {
-	
+	std::cout << "BureaucratException constructor started" << std::endl;
 }
 
 //destructor
 Bureaucrat::BureaucratException::~BureaucratException( void ) throw()
 {
-
+	std::cout << "BureaucratException destructor started" << std::endl;
 }
 
 //method

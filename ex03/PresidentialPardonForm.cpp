@@ -11,31 +11,39 @@ void	PresidentialPardonForm::pardon( void ) const
 PresidentialPardonForm::PresidentialPardonForm( const std::string target )
 	: Form( "PresidentialPardonForm", 25, 5 ), m_target( target )
 {
-	// std::cout << "from PresidentialPardonForm: m_target: " << m_target << std::endl;
+	std::cout << "PresidentialPardonForm constructor started" << std::endl;
 }
 
 //copy constructor////////////////////////////////////////////////////////////////
 PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm& other )
-	: Form( other )
+	: Form( other ), m_target(other.getTarget())
 {
-	*this = other;
+	std::cout << "PresidentialPardonForm copy constructor started" << std::endl;
 }
 
 //destructor///////////////////////////////////////////////////////////////////////
 PresidentialPardonForm::~PresidentialPardonForm( void )
 {
-
+	std::cout << "PresidentialPardonForm destructor started" << std::endl;
 }
 
 //[=] operator overload/////////////////////////////////////////////////////////////
 Form& PresidentialPardonForm::operator= ( const PresidentialPardonForm& other )
 {
+	std::cout << "PresidentialPardonForm [=] operator started" << std::endl;
 	if (this == &other)
-		return ( *this );
-	this->setSigned( other.getSigned() );
-	this->setSignedBy( other.getSignedBy() );
-	this->m_target = other.m_target;
+	{
+		this->setSigned( other.getSigned() );
+		this->setSignedBy( other.getSignedBy() );
+		this->m_target = other.getTarget();
+	}
 	return ( *this );
+}
+
+//getter
+std::string		PresidentialPardonForm::getTarget( void ) const
+{
+	return (m_target);
 }
 
 //methods
